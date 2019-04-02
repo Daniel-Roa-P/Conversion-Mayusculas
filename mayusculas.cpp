@@ -14,23 +14,23 @@ int main(){
 				while (dirent* entrada = readdir(direccion)){
 				
     	    	char* cadenaOriginal;
-    			cadenaOriginal = entrada->d_name;
+    			cadenaOriginal = entrada->d_name;//Se toma el nombre de cada uno de los archivos
     		
-    			printf("%s\n",cadenaOriginal);
+    			printf("%s\n",cadenaOriginal);//Se muestra el nombre de los archivo
     		
     			char* cadenaNueva=cadenaOriginal;
 	 			
  				for(int i = 0; i<strlen(cadenaNueva); i++){
 
-          			cadenaNueva[i] = toupper(cadenaNueva[i]);
+          			cadenaNueva[i] = toupper(cadenaNueva[i]); //Funcion que devuelve la misma cadena pero en mayuscula
 
  				}      			
     		
-    			printf("%s\n",cadenaNueva);
-    			rename(cadenaOriginal,cadenaNueva);
+    			printf("%s\n",cadenaNueva); //Se muestra el nuevo nombre de los archivo
+    			rename(cadenaOriginal,cadenaNueva); //Funcion que renombra el archivo
     		
     	}
-  			closedir (direccion);
+  			closedir (direccion); //cierra el flujo de directorio
 }
 
        return 0;
